@@ -7,95 +7,88 @@
 }
 
 body {
+  background:#304057;
   perspective: 1000px;
   height: 100vh;
+  overflow: hidden;
 }
 
-.cube{
+.cube {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50% ,-50%) rotateX(330deg) rotateY(59deg);
+  transform: translate(-50%, -50%) rotateX(150deg) rotateY(48deg);
+  width: 300px;
+  height: 300px;
   transform-style: preserve-3d;
-}
-
-ul{
-  list-style: none;
-}
-
-.aylan {
-  transform: translate(-40%, -40%) rotateX(0deg) rotateY(0deg);
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
-  transition: all 1.5s ease;
-}
-
-.item {
-  width: 200px;
-  height: 200px;
-  background: rgba(100, 95, 95, 0.1);
-  color: #767675;
-  line-height: 250px;
-  text-align: center;
-  position: absolute;
   transition: all 1s ease;
+}
+
+.item{
+  width: 300px;
+  height: 300px;
+  background-color: #283749;
+  position: absolute;
+  transition: all 1s ease-in;
+  opacity: 0.5;
+}
+
+.item1{
+  background-color: #2BBC63;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  transition: all 1s ease-in;
 }
 
 .front {
-  transform: translate3d(0,0,100px);
+  transform: translate3d(0,0,150px);
 }
+
 .back {
-  transform: translate3d(0,0,-100px) rotateY(180deg);
+  transform: translate3d(0,0,-150px) rotateY(180deg);
 }
+
 .left {
-  transform: translate3d(-100px,0,0) rotateY(-90deg);
+  transform: translate3d(-150px,0,0) rotateY(-90deg);
 }
+
 .right {
-  transform: translate3d(100px,0,0) rotateY(90deg);
+  transform: translate3d(150px,0,0) rotateY(90deg);
 }
+
 .top {
-  transform: translate3d(0,100px,0) rotateX(90deg);
-  background-color: rgb(0, 255, 0);
-  transform-style: preserve-3d;
-  animation: filling 5s alternate ease-in infinite;
+  transform: translate3d(0,-150px,0) rotateX(90deg);
 }
+
 .bottom {
-  transform: translate3d(0,100px,0) rotateX(-90deg);
+  transform: translate3d(0,150px,0) rotateX(-90deg);
 }
 
-.cube1{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-100px,-100px,-100px)  rotateX(0deg) rotateY(0deg);
-  transform-style: preserve-3d;
-  width: 200px;
-  height: 200px;
+.cubic{
+  height: 5px;
+  animation: alternate 5s ease-in infinite cubics;
 }
 
-.aylan1 {
-  transform:  rotateX(0deg) rotateY(0deg);
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
-  transition: all 1.5s ease;
+.cubic1{
+  transform: translate3d(0,-150px,0) rotateX(-90deg);
+  animation: alternate 5s ease-in infinite cubics1;
 }
 
-.item1 {
-  width: 200px;
-  height: 200px;
-  background: rgba(0, 255, 0, 1);
-  text-align: center;
-  position: absolute;
-  transition: all 1s ease;
-}
-
-@keyframes filling{
+@keyframes cubics{
   0%{
-    transform: translate3d(0,100px,0) rotateX(90deg);
+    height: 5px;
   }
   100%{
-    transform: translate3d(0,-100px,0) rotateX(90deg);
+    height: 300px;
+  }
+}
+
+@keyframes cubics1{
+  0%{
+    transform: translate3d(0,-150px,0) rotateX(-90deg);
+  }
+  100%{
+    transform:translate3d(0,150px,0) rotateX(-90deg);
   }
 }
